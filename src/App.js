@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import CustomCalendar from "./Components/CustomCalendar";
+import NewExpense from "./Components/NewExpense";
+// import Calendar from "./Components/Calendar";
 
 function App() {
+  const addExpenseHandler = () => {
+    console.log("asdhahda");
+    return <NewExpense />;
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CustomCalendar />
+      <NewExpense onClick={addExpenseHandler}> Add New expense </NewExpense>
     </div>
   );
 }
