@@ -1,18 +1,29 @@
 import "./App.css";
-import React from "react";
-import CustomCalendar from "./Components/CustomCalendar";
+import React, { useState } from "react";
 import NewExpense from "./Components/NewExpense";
-// import Calendar from "./Components/Calendar";
+import ExpenseListCard from "./Components/ExpenseListCard";
 
 function App() {
-  const addExpenseHandler = () => {
-    console.log("asdhahda");
-    return <NewExpense />;
+  const initialExpenses = [
+    { quantity: "1", date: "1/1/23" },
+    {
+      quantity: "2",
+      date: "1/1/23",
+    },
+  ];
+  const [expenses, setExpenses] = useState(initialExpenses);
+
+  const clickHandler = (quantity, date) => {
+    setExpenses((prevExpense) => {
+      return [...prevExpense, { quantity: quantity, date }];
+    });
   };
   return (
     <div className="App">
-      <CustomCalendar />
-      <NewExpense onClick={addExpenseHandler}> Add New expense </NewExpense>
+      <NewExpense onSubmitHandler={clickHandler}> Add New expense </NewExpense>
+      <p>
+        <ExpenseListCard expenseList={expenses} />
+      </p>
     </div>
   );
 }
