@@ -4,25 +4,28 @@ import NewExpense from "./Components/NewExpense";
 import ExpenseListCard from "./Components/ExpenseListCard";
 
 function App() {
-  const initialExpenses = [
-    { quantity: "1", date: "1/1/23" },
+  const initialData = [
+    { quantity: 1, date: new Date("2023 Jan 01") },
     {
-      quantity: "2",
-      date: "1/1/23",
+      quantity: 2,
+      date: new Date("2023 Jan 01"),
     },
   ];
-  const [expenses, setExpenses] = useState(initialExpenses);
+  const [data, setData] = useState(initialData);
 
   const clickHandler = (quantity, date) => {
-    setExpenses((prevExpense) => {
-      return [...prevExpense, { quantity: quantity, date }];
+    setData((prevData) => {
+      console.log("quantity", quantity);
+      console.log("date", date);
+      console.log("prevData", prevData);
+      return [...prevData, { quantity: quantity, date: new Date(date) }];
     });
   };
   return (
     <div className="App">
-      <NewExpense onSubmitHandler={clickHandler}> Add New expense </NewExpense>
+      <NewExpense onSubmitHandler={clickHandler}>Add New expense</NewExpense>
       <p>
-        <ExpenseListCard expenseList={expenses} />
+        <ExpenseListCard expenseList={data} />
       </p>
     </div>
   );

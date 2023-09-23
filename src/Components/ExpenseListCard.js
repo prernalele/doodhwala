@@ -2,17 +2,26 @@ import React from "react";
 
 const ExpenseListCard = (props) => {
   return (
-    <div>
-      <h2> Expense List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>QUANTITY (in Liters)</th>
+          <th>Date </th>
+          <th>Month </th>
+          <th>Year </th>
+        </tr>
+      </thead>
       {props.expenseList.map((item) => {
         return (
-          <div style={{ borderBottom: "50px" }}>
-            <p>{item.date}</p>
-            <p>{item.quantity}</p>
-          </div>
+          <tr>
+            <td>{item.quantity} </td>
+            <td>{item.date.getDate()}</td>
+            <td>{item.date.toLocaleString("default", { month: "long" })}</td>
+            <td>{item.date.getFullYear()}</td>
+          </tr>
         );
       })}
-    </div>
+    </table>
   );
 };
 
