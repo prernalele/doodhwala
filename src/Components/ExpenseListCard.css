@@ -1,0 +1,18 @@
+.expenseTable {
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 50px;
+}
+
+.tableHeader {
+    background-color: beige;
+}
+
+tr > td {
+    background-color:rgb(225, 201, 225);
+    padding: 5px;
+}
+
+tr> th {
+    padding: 10px;
+}

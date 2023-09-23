@@ -1,23 +1,24 @@
 import React from "react";
+import "./ExpenseListCard.css";
 
 const ExpenseListCard = (props) => {
   return (
-    <table>
-      <thead>
+    <table className="expenseTable">
+      <thead className="tableHeader">
         <tr>
-          <th>QUANTITY (in Liters)</th>
-          <th>Date </th>
-          <th>Month </th>
           <th>Year </th>
+          <th>Month </th>
+          <th>Date </th>
+          <th>QUANTITY (in Liters)</th>
         </tr>
       </thead>
       {props.expenseList.map((item) => {
         return (
           <tr>
-            <td>{item.quantity} </td>
-            <td>{item.date.getDate()}</td>
-            <td>{item.date.toLocaleString("default", { month: "long" })}</td>
             <td>{item.date.getFullYear()}</td>
+            <td>{item.date.toLocaleString("default", { month: "short" })}</td>
+            <td>{item.date.getDate()}</td>
+            <td>{item.quantity} </td>
           </tr>
         );
       })}
