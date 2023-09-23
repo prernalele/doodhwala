@@ -3,12 +3,10 @@ import Button from "./Button";
 import "./newExpense.css";
 
 const NewExpense = (props) => {
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState(0);
   const [date, setDate] = useState(new Date(""));
   const handlerFunction = (event) => {
     event.preventDefault();
-    console.log("date", date);
-    console.log("quantity", quantity);
     props.onSubmitHandler(quantity, date);
   };
   const onQuantityChange = (event) => {
@@ -24,7 +22,7 @@ const NewExpense = (props) => {
     <div className="wrapper">
       <form onSubmit={(event) => handlerFunction(event)}>
         <p>
-          <label> Quantiy of milk bought today </label>
+          <label> Quantiy </label>
           <input
             type="number"
             min="1"
